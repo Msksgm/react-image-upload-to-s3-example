@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 import Thumb from "./Thumb";
+import uploadFile from "./upload-image";
 
 const ImageUploader: FC = () => {
   return (
@@ -16,6 +17,7 @@ const ImageUploader: FC = () => {
             size: `${values.file.size} bytes`,
           })
         );
+        uploadFile(values.file);
       }}
       validationSchema={yup.object().shape({
         file: yup.mixed().required(),
